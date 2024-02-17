@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Example</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        td.highlight {
+            transition: background-color 0.5s ease;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const table = document.getElementById('myTable');
+            const rows = document.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].addEventListener('click', addRow);
+            }
+
+            function addRow(event) {
+                const rowIndex = event.target.parentNode.rowIndex;
+
+                const newRow = table.insertRow(rowIndex + 1);
+                newRow.innerHTML = '<td>New Row</td>';
+                newRow.addEventListener('dblclick', changeBackground);
+            }
+
+            function changeBackground(event) {
+                const cell = event.target;
+
+                if (cell.style.backgroundColor === '') {
+                    // Generate random color
+                    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+                    cell.style.backgroundColor = randomColor;
+                } else {
+                    cell.style.backgroundColor = '';
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <table id="myTable">
+        <tr>
+            <td>Row 1</td>
+        </tr>
+        <tr>
+            <td>Row 2</td>
+        </tr>
+        <tr>
+            <td>Row 3</td>
+        </tr>
+    </table>
+</body>
+</html>

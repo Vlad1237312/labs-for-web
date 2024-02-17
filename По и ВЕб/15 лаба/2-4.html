@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Месяцы и дни недели</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Названия месяцев</h1>
+
+  <ol id="monthList">
+    <li>Январь</li>
+    <li>Февраль</li>
+    <li>Март</li>
+    <li>Апрель</li>
+    <li>Май</li>
+    <li>Июнь</li>
+    <li>Июль</li>
+    <li>Август</li>
+    <li>Сентябрь</li>
+    <li>Октябрь</li>
+    <li>Ноябрь</li>
+    <li>Декабрь</li>
+    <li id="weekDays">13-го месяца не бывает. Возьми лучше дни недели</li>
+  </ol>
+
+  <h2>Таблица с месяцами</h2>
+
+  <table id="monthTable">
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Название месяца</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    const monthList = document.getElementById("monthList");
+    const monthTable = document.getElementById("monthTable");
+    const monthItems = monthList.getElementsByTagName("li");
+    const weekDays = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+
+    for (let i = 0; i < monthItems.length; i++) {
+      const monthName = monthItems[i].textContent;
+      const row = document.createElement("tr");
+
+      const numberCell = document.createElement("td");
+      numberCell.textContent = i + 1;
+      row.appendChild(numberCell);
+
+      const nameCell = document.createElement("td");
+      nameCell.textContent = monthName;
+      row.appendChild(nameCell);
+
+      monthTable.appendChild(row);
+    }
+
+    const weekDaysList = document.createElement("ul");
+    weekDays.forEach(function(day) {
+      const dayItem = document.createElement("li");
+      dayItem.textContent = day;
+      weekDaysList.appendChild(dayItem);
+    });
+
+    const weekDaysContainer = document.createElement("div");
+    weekDaysContainer.appendChild(weekDaysList);
+    const weekDaysListItem = document.getElementById("weekDays");
+    weekDaysListItem.appendChild(weekDaysContainer);
+  </script>
+</body>
+</html>

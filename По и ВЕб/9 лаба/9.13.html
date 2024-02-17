@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Веб-страница</title>
+    <style>
+        #passwordInput {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="startDialog()">
+    <script>
+        function startDialog() {
+            var response = prompt("Who is there? (Отмена, Другое, Админ)", "");
+            
+            if (response === "Отмена") {
+                alert("Отменено");
+            } else if (response === "Другое") {
+                alert("Я не знаю");
+            } else if (response === "Админ") {
+                askPassword();
+            }
+        }
+        function askPassword() {
+            var password = prompt("Пароль? (Отмена, Другое, Я Главный)", "");
+            
+            if (password === "Отмена") {
+                alert("Отменено");
+            } else if (password === "Другое") {
+                alert("Неверный пароль");
+            } else if (password === "Я Главный") {
+                var secretPassword = prompt("Введите пароль", "");
+                if (secretPassword === "Я") {
+                    alert("Верный пароль, Добрый день Владислав");
+                } else {
+                    alert("Неверный пароль");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

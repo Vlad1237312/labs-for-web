@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Вывод содержимого заголовков</title>
+</head>
+<body>
+  <h1>Заголовок скучный</h1>
+  <h2>Заголовок веселый</h2>
+  <main>
+    <h2>Заголовок странный</h2>
+    <h3>Заголовок некрасивый</h3>
+    <h1>Заголовок большой</h1>
+    <h2>Заголовок по остаточному принципу выбранный</h2>
+  </main>
+  <button id="Button">Вывести заголовки</button>
+  <script>
+    const Button = document.getElementById("Button");
+    Button.addEventListener("click", function() {
+      const mainElement = document.querySelector("main");
+      const headers = mainElement.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+      let headersText = "";
+      headers.forEach(function(header) {
+        headersText += "~" + header.textContent + "\n";
+      });
+
+      alert( "Содержимое заголовков элемента main" + "\n" + headersText);
+    });
+  </script>
+</body>
+</html>

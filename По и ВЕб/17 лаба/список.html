@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Создание и изменение списков</title>
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <button id="createListBtn">Создать список</button>
+
+  <select id="listType">
+    <option value="unordered">Неупорядоченный список</option>
+    <option value="ordered">Упорядоченный список</option>
+  </select>
+
+  <button id="changeColorBtn">Изменить цвет элементов списка</button>
+
+  <button id="prependBtn">Добавить в начало списка</button>
+
+  <button id="appendBtn">Добавить в конец списка</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    document.getElementById("createListBtn").onclick = function() {
+      const listType = document.getElementById("listType").value;
+      const list = document.getElementById("list");
+
+      // Очищаем список перед созданием нового
+      list.innerHTML = "";
+
+      for (let i = 1; i <= 5; i++) {
+        const li = document.createElement("li");
+        li.textContent = "Элемент " + i;
+        li.setAttribute("data-index", i);
+        list.appendChild(li);
+      }
+
+      if (listType === "unordered") {
+        list.style.listStyleType = "circle";
+      } else if (listType === "ordered") {
+        list.style.listStyleType = "decimal";
+      }
+    };
+
+    document.getElementById("changeColorBtn").onclick = function() {
+      const lis = document.getElementById("list").getElementsByTagName("li");
+
+      for (let i = 0; i < lis.length; i++) {
+        if ((i + 1) % 2 !== 0) {
+          lis[i].classList.add("red");
+        } else {
+          lis[i].classList.remove("red");
+        }
+      }
+    };
+
+    document.getElementById("prependBtn").onclick = function() {
+      const list = document.getElementById("list");
+      const li = document.createElement("li");
+      li.textContent = "Элемент " + (list.children.length + 1);
+      li.setAttribute("data-index", list.children.length + 1);
+      list.insertBefore(li, list.firstChild);
+    };
+
+    document.getElementById("appendBtn").onclick = function() {
+      const list = document.getElementById("list");
+      const li = document.createElement("li");
+      li.textContent = "Элемент " + (list.children.length + 1);
+      li.setAttribute("data-index", list.children.length + 1);
+      list.appendChild(li);
+    };
+  </script>
+</body>
+</html>

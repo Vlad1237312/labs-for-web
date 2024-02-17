@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Тест по теме "Рекорды Гиннеса"</title>
+  <style>
+        body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(237, 167, 75);
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz">
+    <h2>Тест по теме "Рекорды Гиннеса"</h2>
+    <div class="question">
+      <h3>Вопрос 1: Какое животное считается самым большим в мире?</h3>
+      <input type="radio" name="q1" value="a"> Акула<br>
+      <input type="radio" name="q1" value="b"> Синий кит<br>
+      <input type="radio" name="q1" value="c"> Слон<br>
+      <input type="radio" name="q1" value="d"> Блоха<br>
+      <input type="radio" name="q1" value="e"> Волк<br>
+    </div>
+    <div class="question">
+      <h3>Вопрос 2: Какая страна имеет наибольшую площадь территории?</h3>
+      <input type="radio" name="q2" value="a"> Россия<br>
+      <input type="radio" name="q2" value="b"> Канада<br>
+      <input type="radio" name="q2" value="c"> Беларусь<br>
+      <input type="radio" name="q2" value="d"> Китай<br>
+      <input type="radio" name="q2" value="e"> США<br>
+    </div>
+    <div class="question">
+      <h3>Вопрос 3: Сколько часов можно продержаться без сна по рекорду Гиннеса?(в минутах выдели все)</h3>
+      <input type="text" name="q3"><br>
+    </div>
+    <div class="question">
+      <h3>Вопрос 4: В какой из перечисленных стран население больше?</h3>
+      <input type="checkbox" name="q4" value="a"> Россия<br>
+      <input type="checkbox" name="q4" value="b"> Китай<br>
+      <input type="checkbox" name="q4" value="c"> Беларусь<br>
+      <input type="checkbox" name="q4" value="d"> Украина<br>
+      <input type="checkbox" name="q4" value="e"> Чебурашек<br>
+    </div>
+    <div class="question">
+      <h3>Вопрос 5: Кто считается "царем зверей"?</h3>
+      <input type="radio" name="q5" value="a"> Лев<br>
+      <input type="radio" name="q5" value="b"> Леопард<br>
+      <input type="radio" name="q5" value="c"> Гепард<br>
+      <input type="radio" name="q5" value="d"> Тигр<br>
+      <input type="radio" name="q5" value="e"> Осел<br>
+    </div>
+    <button onclick="showResults()">Результат</button>
+  </div>
+  <script>
+    function showResults() {
+      const questions = document.getElementsByClassName("question");
+      const wrongAnswers = [];
+      if (questions[0].querySelector('input[name="q1"]:checked').value !== "b") {
+        wrongAnswers.push(1);
+      }
+      if (questions[1].querySelector('input[name="q2"]:checked').value !== "a") {
+        wrongAnswers.push(2);
+      }
+      if (questions[2].querySelector('input[name="q3"]').value !== "27220") {
+        wrongAnswers.push(3);
+      }
+      if (!questions[3].querySelector('input[name="q4"][value="a"]:checked') && !questions[3].querySelector('input[name="q4"][value="b "]:checked')) {
+  wrongAnswers.push(4);
+}
+      if (questions[4].querySelector('input[name="q5"]:checked').value !== "a") {
+        wrongAnswers.push(5);
+      }
+      
+      let resultMessage = "Результат теста: ";
+      
+      if (wrongAnswers.length === 0) {
+        resultMessage += "все ответы верны!";
+      } else {
+        resultMessage += "неверно отвечены: ";
+        for (let i = 0; i < wrongAnswers.length; i++) {
+          resultMessage += wrongAnswers[i] + ", ";
+        }
+        resultMessage = resultMessage.slice(0, -2); // удаляем последнюю запятую и пробел
+      }
+      
+      alert(resultMessage);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Приветствие</title>
+  <style>
+    body {
+      background-color: #ff5900;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, button {
+      padding: 5px;
+      font-size: 16px;
+      height: 30px;
+      width: 200px;
+    }
+    button {
+      background-color: #00ff08;
+      color: rgb(0, 0, 0);
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      height: 40px;
+    }
+    button:hover {
+      background-color: #00fbff;
+    }
+    #result {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #930062;
+    }
+  </style>
+</head>
+<body>
+  <label for="username">Введите ваше имя:</label>
+  <input type="text" id="username" />
+  <label for="interval">Введите интервал (в секундах):</label>
+  <input type="number" id="interval" />
+  <button onclick="showGreetings()">Вывести приветствие</button>
+  <p id="result"></p>
+  <script>
+    function showGreetings() {
+      const username = document.getElementById("username").value;
+      const interval = parseFloat(document.getElementById("interval").value);
+      if (isNaN(interval) || interval <= 0) {
+        document.getElementById("result").textContent = "Некорректный интервал";
+        return;
+      }
+      setInterval(() => {
+        document.getElementById("result").textContent = "Привет, " + username + "!";
+      }, interval * 1000);
+    }
+  </script>
+</body>
+</html>

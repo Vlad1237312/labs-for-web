@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма</title>
+    <style>
+        body{
+            background-color: rgb(104, 203, 203);
+            font-size: 20px;
+        }
+        .red {
+            color: red;
+        }
+        .blue {
+            color: rgb(0, 0, 255);
+        }
+        
+    </style>
+</head>
+<body>
+    <form>
+        <label for="textField">Текстовое поле: </label>
+        <input type="text" id="textField">
+        <br>
+        <label>Зависимые переключатели: </label>
+        <input type="radio" name="dependentRadio" value="option1"> Переключатель 1
+        <input type="radio" name="dependentRadio" value="option2"> Переключатель 2
+        <br>
+        <label>Независимый переключатель: </label>
+        <input type="checkbox" id="independentCheckbox" value="independentOption"> Независим
+        <br>
+        <label for="dropdownList">Выпадающий список: </label>
+        <select id="dropdownList">
+            <option value="option1">Элемент 1</option>
+            <option value="option2">Элемент 2</option>
+            <option value="option3">Элемент 3</option>
+        </select>
+        <br>
+        <button type="button" id="changeColorButton">Ввести текст/Изменить цвет</button>
+        <br>
+        <input type="submit" value="Отправить">
+        <input type="reset" id="compareButton" value="Сравнить">
+        <br>
+        <input type="text" id="searchInput" placeholder="Искомая строка"><br>
+        <label for="multiLineInput">Многострочное текстовое поле: </label>
+        <textarea id="multiLineInput" rows="4" cols="50"></textarea>
+    </form>
+
+    <a href="2.html">3 задание</a>
+    <script src="1.js"></script>
+</body>
+</html>

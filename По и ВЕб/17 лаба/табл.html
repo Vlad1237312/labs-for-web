@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<script>
+// Создаем таблицу
+let table = document.createElement("table");
+
+// Создаем ячейки и добавляем их в таблицу
+for (let i = 0; i < 3; i++) {
+  let row = document.createElement("tr");
+  
+  for (let j = 0; j < 3; j++) {
+    let cell = document.createElement("td");
+    
+    // Задаем цвета ячеек
+    if (i === 1 && j === 1) { // Центральная ячейка красная
+      cell.style.backgroundColor = "red";
+    } else if ((i === 1 && (j === 0 || j === 2)) || (j === 1 && (i === 0 || i === 2))) { // Ячейки с зеленым цветом
+      cell.style.backgroundColor = "green";
+    } else { // Остальные ячейки голубые
+      cell.style.backgroundColor = "lightblue";
+    }
+    
+    // Задаем текст в ячейках
+    cell.innerText = (i * 3 + j + 1).toString();
+    
+    // Добавляем ячейку в строку
+    row.appendChild(cell);
+  }
+  
+  // Добавляем строку в таблицу
+  table.appendChild(row);
+}
+
+// Добавляем таблицу на страницу
+document.body.appendChild(table);
+</script>
+
+</body>
+</html>

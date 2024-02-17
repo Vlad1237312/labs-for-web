@@ -1,0 +1,37 @@
+.switch-btn {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.switch-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: gray;
+  transition: all 0.3s ease;
+}
+
+.switch-btn-on {
+
+  background-color: blue;
+  color: #fff;
+}
+
+.switch-btn-on::before {
+  left: unset;
+  right: 5px;
+  background-color: white;
+}

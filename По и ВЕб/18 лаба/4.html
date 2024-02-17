@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задание 4</title>
+    <style>
+        .button {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        const elements = [
+            { id: 'myTextarea', name: 'Текстовое поле', properties: ['Клик', 'Маусовер', 'Маусаут', 'Кейдаун', 'Кейпресс'] },
+            { id: 'myText', name: 'Строка ввода текста', properties: ['Клик', 'Маусовер', 'Маусаут', 'Кейдаун', 'Кейпресс'] },
+            { id: 'myImage', name: 'Изображение', properties: ['Клик', 'Маусовер', 'Маусаут'] },
+            { id: 'myGreeting', name: 'Текст', properties: ['Клик', 'Маусовер', 'Маусаут'] },
+            { id: 'myButton', name: 'Кнопочка', properties: ['Клик', 'Маусовер', 'Маусаут'] }
+        ];
+
+        const propertyTexts = [
+            'Клик',
+            'Маусовер',
+            'Маусаут',
+            'Кейдаун',
+            'Кейпресс'
+        ];
+
+        function showInputDialog() {
+            const elementSelect = prompt('Выберите элемент:\n1. Текстовое поле\n2. Строка ввода текста\n3. Изображение\n4. Текст\n5. Кнопочка');
+
+            if (elementSelect && Number.isInteger(Number(elementSelect))) {
+                const elementIndex = Number(elementSelect) - 1;
+
+                if (elementIndex >= 0 && elementIndex < elements.length) {
+                    const selectedElement = elements[elementIndex];
+                    const elementId = selectedElement.id;
+
+                    let propertiesMessage = selectedElement.properties.map((property, index) => `${index + 1}. ${property}`).join('\n');
+
+                    const propertySelect = prompt(`Выбран элемент "${selectedElement.name}".\nВведите номер свойства:\n${propertiesMessage}`);
+
+                    if (propertySelect && Number.isInteger(Number(propertySelect))) {
+                        const selectedProperty = Number(propertySelect);
+
+                        if (selectedProperty >= 1 && selectedProperty <= selectedElement.properties.length) {
+                            applyEvent(elementId, selectedElement.properties[selectedProperty - 1]);
+                        } else {
+                            alert('Некорректный номер свойства');
+                        }
+                    } else {
+                        alert('Некорректный номер свойства');
+                    }
+                } else {
+                    alert('Некорректный номер элемента');
+                }
+            } else {
+                alert('Некорректный номер элемента');
+            }
+        }
+
+        function applyEvent(elementId, property) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                switch (property) {
+                    case 'Клик':
+                        element.addEventListener('click', function(event) {
+                            console.log(`Выполнено свойство "${property}" для элемента "${elementId}"`);
+                        });
+                        console.log(`Свойство "${property}" применено к элементу "${elementId}"`);
+                        break;
+                    case 'Маусовер':
+                        element.addEventListener('mouseover', function(event) {
+                            console.log(`Выполнено свойство "${property}" для элемента "${elementId}"`);
+                        });
+                        console.log(`Свойство "${property}" применено к элементу "${elementId}"`);
+
+                        break;
+                    case 'Маусаут':
+                        element.addEventListener('mouseout', function(event) {
+                            console.log(`Выполнено свойство "${property}" для элемента "${elementId}"`);
+                        });
+                        console.log(`Свойство "${property}" применено к элементу "${elementId}"`);
+                        break;
+                    case 'Keydown':
+                        if (elementId === 'myTextarea' || elementId === 'myText') {
+                            element.addEventListener('keydown', function(event) {
+                                console.log(`Выполнено свойство "${property}" для элемента "${elementId}"`);
+                            });
+                            console.log(`Свойство "${property}" применено к элементу "${elementId}"`);
+                        } else {
+                            alert('Некорректное свойство для выбранного элемента');
+                        }
+                        break;
+                    case 'Keypress':
+                        if (elementId === 'myTextarea' || elementId === 'myText') {
+                            element.addEventListener('keypress', function(event) {
+                                console.log(`Выполнено свойство "${property}" для элемента "${elementId}"`);
+                            });
+                            console.log(`Свойство "${property}" применено к элементу "${elementId}"`);
+                        } else {
+                            alert('Некорректное свойство для выбранного элемента');
+                        }
+                        break;
+                    default:
+                        alert('Некорректное свойство');
+                }
+            } else {
+                alert(`Элемент с идентификатором "${elementId}" не найден`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showInputDialog()">Задать</button>
+
+    <br><br>
+
+    <textarea id="myTextarea" rows="4" cols="50">Текстовое поле</textarea>
+    <br><br>
+    <input type="text" id="myText" value="Строка ввода текста">
+    <br><br>
+    <img id="myImage" src="#" alt="Изображение">
+    <br><br>
+    <div id="myGreeting">Текст</div>
+    <br><br>
+    <button id="myButton" class="button">Кнопочка</button>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Приветствую</title>
+    <style>
+        body {
+            background-color: rgb(244, 194, 133);
+        }
+        /* Стили для абзацев <p> с классом test из <div> с id=hello */
+        #hello .test {
+            color: rgb(37, 63, 119);
+            font-size: 20px;
+        }
+        /* Стили для абзацев <p>, которые имеют одновременно 2 класса: test и hello */
+        p.test.hello {
+            font-weight: bold;
+        }
+        /* Стили для абзацев <p> с атрибутом title */
+        p[title] {
+            text-decoration: underline;
+        }
+         /*Непосещенная*/
+         a:link {
+            color: rgb(0, 165, 17);
+        }
+        /*Посещенная*/
+        a:visited {
+            color: rgb(255, 6, 6);
+        }
+        /*Эффекты при наведении*/
+        a:hover {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        /*Активная*/
+        a:active {
+            color: rgb(225, 255, 0);
+        }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        }
+        th {
+        font-size: 20px;
+        border: 1px solid #000000;
+        }
+        td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #000000;
+        }
+        tr:nth-child(even) {
+        background-color: #09ff2e;
+        }
+        tr:nth-child(odd) {
+        background-color: #ffffff;
+        }
+        td:first-child {
+        background-color: rgb(0, 132, 255);
+        }
+        .toggle {
+        margin-top: 20px;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        position: relative;
+        border-radius: 15px;
+        background-color: #80f48c;
+        }
+        .toggle input {
+        display: none;
+        }
+        .toggle span {
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        background-color: #200094;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        transition: background-color 0.1s;
+        }
+        .toggle input:checked + span {
+        background-color: #f00;
+        }
+        .toggle {
+            margin-bottom: -10px;
+        }
+        #social-icons {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            z-index: 9999;
+        }
+        #social-icons a {
+            display: inline-block;
+            margin-left: 10px;
+            width: 50px;
+            height: 50px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-indent: -9999px;
+            border-radius: 50%;
+        }
+        #instagram {
+            background-image: url(in.png);
+            width: 50px;
+            height: 50px;
+        }
+        #facebook {
+            background-image: url(fb.webp);
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="hello">
+        <p class="hell" title="Пример">PUBG Mobile имеет схожий игровой процесс, аналогичный геймплею оригинальной PUBG: Battlegrounds: игроков сбрасывают с парашютом на остров, на котором до ста участников сражаются друг с другом. Должен остаться единственный выживший или единственная команда. Перед матчем можно выбрать, сколько будет членов в команде, а также карту, на которой будет происходить действие игры. Также можно выбрать играть в рейтинговые или безрейтинговые режимы.</p>
+        <p class="test">PUBG Mobile (сокращение от PlayerUnknown’s Battlegrounds Mobile) — условно-бесплатная мобильная многопользовательская онлайн-игра в жанре королевской битвы. Разработчик — LightSpeed & Quantum Studio, являющийся подразделением Tencent Games. Игра является мобильной версией оригинальной PUBG: Battlegrounds, разработанной PUBG Corporation (ныне PUBG Studios).</p>
+        <p class="test hello" title="Пример">PUBG Mobile собрал 32,42 миллиона долларов в Японии за 2018 год. В августе 2020 года игра собрала уже более 3,5 миллиардов долларов выручки. За 2020 год она заработала 2,6 миллиарда долларов, что сделало её самой прибыльной игрой года, а к декабрю общий доход достиг 4,3 миллиарда долларов. К марту 2021 года PUBG Mobile собрал 5,1 миллиардов долларов. По состоянию на август 2021 года весь доход игры по всему миру составляет 6,2 миллиарда долларов.</p>
+        <p style="font: 15pt Courier;">Рецензент из IGN написал, что «в шутере Battle Royale ничто не заменит точность мыши и клавиатуры или привлекательность консоли, но PUBG Mobile — это техническое чудо»</p>
+        <ul>
+            <li><a href="https://studfile.net/preview/5906191/page:24/" class="active">Ссылка первая</a></li>
+            <li><a href="https://radioparty.ru/device/microchip/33-zamok-pic16f628" class="visited">Ссылка вторая</a></li>
+            <li><a href="https://lms.bsuir.by/login/index.php" class="unvisited">Ссылка третяя</a></li>
+        </ul>
+    </div>
+    <table>
+        <tr>
+          <th>ЗКИ</th>
+          <th>ПО ВЕБ</th>
+          <th>КС</th>
+        </tr>
+        <tr>
+          <td>Лабы сданы</td>
+          <td>12 лаб не сдано</td>
+          <td>9 лаб не сдано</td>
+        </tr>
+        <tr>
+          <td>Практозы сданы</td>
+          <td>Практозы не сданы</td>
+          <td>Практозы не сданы</td>
+        </tr>
+        <tr>
+          <td>За семестр 10</td>
+          <td>За семестр 9</td>
+          <td>За семестр 8</td>
+        </tr>
+    </table>
+BEL:
+<label class="toggle">
+<input type="checkbox" id="masterToggle">
+<span></span>
+</label>
+NER:
+<label class="toggle">
+<input type="checkbox" id="dependentToggle" disabled>
+<span></span>
+</label>
+<script>
+var masterToggle = document.getElementById('masterToggle');
+var dependentToggle = document.getElementById('dependentToggle');
+masterToggle.addEventListener('change', function() {
+  if (masterToggle.checked) {
+    dependentToggle.disabled = false;}
+  else {
+    dependentToggle.disabled = true;
+    dependentToggle.checked = false;}});
+</script>
+<p></p>
+<p></p>
+<div id="social-icons">
+    <a href="https://www.instagram.com/" id="instagram">Instagram</a>
+    <a href="https://ru-ru.facebook.com/" id="facebook">Facebook</a>
+</div>
+</body>
+</html>

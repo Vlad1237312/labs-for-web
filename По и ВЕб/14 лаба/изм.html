@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: coral;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <button id="button1">Открыть окно 1</button>
+  <button id="button2">Открыть окно 2</button>
+  <button id="changeWindowSize">Изменить размер окна</button>
+  <a href="чето.html" id="link">Перейти на другую страницу</a>
+  <h2 id="browserTitle"></h2>
+  <script>
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    const changeWindowSizeButton = document.getElementById("changeWindowSize");
+    const link = document.getElementById("link");
+    const browserTitle = document.getElementById("browserTitle");
+    let newWindow; // Переменная для хранения открытого окна
+
+    button1.addEventListener("click", () => {
+      const windowFeatures = "width=200,height=200,toolbar=no,menubar=no,status=yes,location=no,resizable=yes,scrollbars=yes";
+      newWindow = window.open("", "", windowFeatures);
+    });
+
+    button2.addEventListener("click", () => {
+      const windowFeatures = "width=400,height=400,toolbar=yes,menubar=yes,status=yes,location=no,resizable=yes,scrollbars=no";
+      newWindow = window.open("", "", windowFeatures);
+    });
+
+    function resizeWindow() {
+      if (newWindow) {
+        cchh(newWindow); // Вызов функции изменения размера окна
+      } else {
+        alert("Сначала откройте окно");
+      }
+    }
+
+    changeWindowSizeButton.addEventListener("click", resizeWindow);
+
+    function cchh(window) {
+      let width = 700;
+      let height = 500;
+      window.resizeTo(width, height);
+    }
+
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      
+      const url = link.href;
+      const newWindow = window.open(url, "_blank");
+      
+      setTimeout(() => {
+        newWindow.close();
+        window.location.href = document.URL;
+      }, 5000);
+    });
+    // Вывод названия браузера
+    browserTitle.textContent = navigator.appName;
+    setTimeout(() => {
+      document.getElementById("browserTitle").innerHTML = navigator.appVersion;
+    }, 2000);
+    setTimeout(() => {
+      document.getElementById("browserTitle").innerHTML = navigator.appCodeName + " - " + navigator.product;
+    }, 7000);
+  </script>
+</body>
+</html>

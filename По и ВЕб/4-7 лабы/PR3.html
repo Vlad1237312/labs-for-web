@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация фирмы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9baba;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+        form {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #f36a30;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #000000;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 95%;
+            padding: 10px;
+            border: 2px solid #dd0808;
+            border-radius: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .success {
+            color: green;
+        }
+        small {
+            color: #000000;
+        }
+        input[type="submit"] {
+            background-color: #00ff08;
+            color: #000000;
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Регистрация фирмы</h1>
+    <form action="submit.php" method="post" onsubmit="return validateForm()">
+        <div>
+            <label for="company_name">Название фирмы:</label>
+            <input type="text" id="company_name" name="company_name" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="error" id="passwordError"></span>
+        </div>
+        <div>
+            <label for="confirm_password">Подтвердите пароль:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <span class="error" id="confirmPasswordError"></span>
+        </div>
+        <div>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <span class="error" id="phoneError"></span>
+            <small>(Формат: XXX-XXX-XXXX)</small>
+        </div>
+        <div>
+            <input type="submit" value="Зарегистрироваться">
+        </div>
+    </form>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            if (password != confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "Пароли не совпадают";
+                return false;
+            }
+            var phone = document.getElementById("phone").value;
+            var phonePattern = /[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").innerHTML = "Неверный формат телефона";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

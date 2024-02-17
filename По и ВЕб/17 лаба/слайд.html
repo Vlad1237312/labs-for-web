@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+        body {
+      background-color: rgb(195, 82, 212);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .slider-container {
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+    }
+    .slider-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slider-image {
+      width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider-images">
+      <img class="slider-image" src="https://bipbap.ru/wp-content/uploads/2018/06/3c980dd2e9c909ada7377cc89885231b.jpg" alt="Image 1">
+      <img class="slider-image" src="https://bipbap.ru/wp-content/uploads/2018/06/img_resize.jpg" alt="Image 2">
+      <img class="slider-image" src="https://bipbap.ru/wp-content/uploads/2018/06/3ee998952c2016c72a9ad131db1ea00d.jpg" alt="Image 3">
+      <img class="slider-image" src="https://klike.net/uploads/posts/2018-12/1544425315_3.jpg" alt="Image 4">
+      <img class="slider-image" src="https://klike.net/uploads/posts/2018-12/1544425270_1.jpg" alt="Image 5">
+    </div>
+  </div>
+
+  <script>
+    const sliderImages = document.querySelector('.slider-images');
+    const sliderImageWidth = document.querySelector('.slider-image').clientWidth;
+    let currentIndex = 0;
+    
+    function nextSlide() {
+      currentIndex++;
+      if (currentIndex >= sliderImages.children.length) {
+        currentIndex = 0;
+      }
+      sliderImages.style.transform = `translateX(-${currentIndex * sliderImageWidth}px)`;
+    }
+    
+    setInterval(nextSlide, 5000);
+  </script>
+</body>
+</html>
+  
