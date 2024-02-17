@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  .container {
+    width: 375px;
+    height: 812px;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .Name {
+        position: absolute;
+        top: 126px;
+        left: 50px;
+        transform: none;
+        width: 275px;
+        height: 60px;
+  }
+  .status-bar {
+    position: absolute;
+    width: 329px;
+    height: 44px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 21px;
+    border: 1px solid rgb(246, 242, 242);
+  }
+  .time {
+    width: 54px;
+    height: 18px;
+    color: black;
+    font-size: 15px;
+    margin-right: 240px;
+    font-weight: 600;
+  }
+  .status-icon {
+    width: 15px;
+    height: 11px;
+    margin-left: 10px;
+  }
+  .content {
+    padding: 126px 16px 0;
+    text-align: center;
+  }
+  .login {
+    color: #FF7A00;
+    display: flex;
+    width: 70px;
+    height: 29px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 90px;
+    margin-bottom: 0px;
+    display: flex;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .input-field {
+    display: flex;
+    width: 330px;
+    height: 64px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    border-radius: 16px;
+    background-color: rgb(255, 240, 240);
+    border: 1px solid rgb(255, 255, 255);
+    margin: 1px auto;
+    text-align: left;
+    margin-top: 16px;
+    padding-left: 10px;
+  }
+  .forgot-password {
+    color: #FF7A00;
+    font-size: 15px;
+    margin-top: 16px;
+    text-decoration: underline;
+    margin-right: 230px;
+    font-weight: 900;
+  }
+  .button {
+    cursor: pointer;
+    width: 343px;
+    height: 64px;
+    background-color: #FF7A00;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    border: none;
+    border-radius: 32px;
+    margin-top: 16px;
+    font-weight: bold;
+  }
+  .signup-button {
+    position: relative;
+    width: 343px;
+    height: 64px;
+    background-color: rgb(255, 255, 255);
+    color: #FF7A00;
+    font-size: 16px;
+    border-radius: 32px;
+    margin-top: 16px;
+    border: 2px rgb(255, 123, 0) solid;
+  }
+  .google-button {
+    position: relative;
+    width: 343px;
+    height: 64px;
+    background-color: rgb(255, 255, 255);
+    color: #FF7A00;
+    font-size: 16px;
+    border-radius: 32px;
+    margin-top: 16px;
+    border: 2px rgb(255, 123, 0) solid;
+  }
+  .google-button img {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 60px;
+    top: 16.5px;
+  }

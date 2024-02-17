@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <title>Функции</title>
+</head>
+<body>
+  <h1>Функции</h1>
+  <h2>Функция степени</h2>
+  <label for="base">Число:</label>
+  <input type="text" id="base">
+  <br>
+  <label for="exponent">Степень:</label>
+  <input type="text" id="exponent">
+  <br>
+  <button onclick="calculatePower()">Посчитать</button>
+  <p id="powerResult"></p>
+  <h2>Функция месяцы</h2>
+  <label for="month">Номер месяца (1-12):</label>
+  <input type="text" id="month">
+  <br>
+  <button onclick="setMonth()">Запомнить месяц</button>
+  <button onclick="getMonthName()">Получить имя месяца</button>
+  <p id="monthName"></p>
+  <h2>Функция максимального элемента</h2>
+  <label for="numbers">Введите массив:</label>
+  <input type="text" id="numbers">
+  <br>
+  <button onclick="findMaxAndPrintResult()">Найти максимальный элемент</button>
+  <p id="maxResult"></p>
+  <h2>Функция повторения</h2>
+  <label for="str">Повторяемое значение:</label>
+  <input type="text" id="str">
+  <br>
+  <label for="repetitions">Количество повторений:</label>
+  <input type="text" id="repetitions">
+  <br>
+  <button onclick="repeatString()">Повторить</button>
+  <p id="repeatResult"></p>
+  <h2>Калькулятор</h2>
+  <label for="a">Первое число:</label>
+  <input type="text" id="a">
+  <br>
+  <label for="b">Второе число:</label>
+  <input type="text" id="b">
+  <br>
+  <label for="c">Третье число:</label>
+  <input type="text" id="c">
+  <br>
+  <button onclick="calculate()">Результат</button>
+  <p id="calcResult"></p>
+  <h2>AddN-функция</h2>
+  <label for="addNInput">Число:</label> 
+  <input type="text" id="addNInput">
+  <br>
+  <button onclick="addN()">Выполнить</button>
+  <p id="addNResult"></p>
+  <script>
+    // Степени
+    function calculatePower() {
+      const base = parseFloat(document.getElementById('base').value);
+      const exponent = parseFloat(document.getElementById('exponent').value);
+      const result = power(base, exponent);
+      document.getElementById('powerResult').textContent = `${base} в степени ${exponent} это ${result}`;
+    }
+    function power(base, exponent = 1) {
+      return Math.pow(base, exponent);
+    }
+    // Месяцы
+    function setMonth() {
+      const month = parseInt(document.getElementById('month').value);
+      window.month = month;
+    }
+    function getMonthName() {
+      const months = [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь"
+      ];
+      const monthName = months[window.month - 1];
+      document.getElementById('monthName').textContent = `Выбранный месяц: ${monthName}`;
+    }
+// Функция для нахождения максимального элемента массива
+function findMaxAndPrintResult() {
+      const numbersInput = document.getElementById("numbers");
+      const maxResult = document.getElementById("maxResult");
+      // Преобразуем введенную строку в массив чисел
+      const numbersString = numbersInput.value;
+      const numbersArray = numbersString.split(",").map(Number);
+      // Находим максимальный элемент
+      const maxElement = findMaxElement(numbersArray);
+      // Выводим результат и значение максимального элемента
+      maxResult.textContent = getResultMessage(maxElement) + " (максимальный элемент: " + maxElement + ")";
+    }
+    function findMaxElement(arr) {
+      let max = arr[0];
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+          max = arr[i];
+        }
+      }
+      return max;
+    }
+    function getResultMessage(max) {
+      if (max < 10) {
+        return "Максимальный элемент находится в диапазоне от 0 до 9";
+      } else if (max < 100) {
+        return "Максимальный элемент находится в диапазоне от 10 до 99";
+      } else {
+        return "Максимальный элемент больше или равен 100";
+      }
+    }
+    // Повторение
+    function repeat(str, n) {
+  if (str === "") {
+    str = "2";
+  }
+  if (isNaN(n) || n === "") {
+    n = 2;
+  }
+    let repeatedString = "";
+  for (let i = 0; i < n; i++) {
+    repeatedString += String(str);
+  }
+  return repeatedString;
+}
+  const repeatString = function() {
+  const str = document.getElementById('str').value;
+  const repetitions = document.getElementById('repetitions').value;
+  const result = repeat(str, repetitions);
+  document.getElementById('repeatResult').textContent = `Результат: ${result}`;
+}
+    // Калькуятор
+    function calculate() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const c = parseFloat(document.getElementById('c').value);
+      const result = (a * b) / c;
+      document.getElementById('calcResult').textContent = `Результат: ${result}`;
+    }
+    // AddN Function (Closures)
+    function addN() {
+      const n = parseInt(document.getElementById('addNInput').value);
+      const addByN = addNFunction(n);
+      const result = addByN(2);
+      document.getElementById('addNResult').textContent = `Результат: ${result}`;
+    }
+    function addNFunction(n) {
+      return function(x) {
+        return x + n;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задание 2</title>
+    <script>
+        const handleClick = (event) => {
+            event.preventDefault();
+            console.log('Клик');
+        }
+        const handleMouseOver = (event) => {
+            console.log('Курсор на элемент');
+        }
+        const handleMouseOut = (event) => {
+            console.log('Курсор вне элемента');
+        }
+        const handleKeyDown = (event) => {
+            console.log('Нажатие клавиши');
+        }
+        const handleKeyPress = (event) => {
+            console.log('Удержание клавиши');
+        }
+    </script>
+</head>
+<body>
+    <a href="https://www.chipdip.by/product/hef4013bt" onclick="handleClick(event)" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)" onkeydown="handleKeyDown(event)" onkeypress="handleKeyPress(event)">Ссылочка</a>
+</body>
+</html>

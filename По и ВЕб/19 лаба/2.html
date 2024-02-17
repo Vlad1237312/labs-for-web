@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка формы</title>
+    <style>
+        #result {
+            font-family: Arial, sans-serif;
+            
+            background-color: #d460a0;
+            padding: 10px;
+            border: 1px solid #3c5d5f;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label>Переключатель 1: <input type="radio" name="radioGroup" value="radio1"></label>
+        <label>Переключатель 2: <input type="radio" name="radioGroup" value="radio2"></label>
+        <br>
+        <label>Флаг 1: <input type="checkbox" name="checkboxGroup" value="checkbox1"></label>
+        <label>Флаг 2: <input type="checkbox" name="checkboxGroup" value="checkbox2"></label>
+        <br>
+        <select name="selectList" id="mySelect" multiple>
+            <option value="option1">Опция 1</option>
+            <option value="option2">Опция 2</option>
+            <option value="option3">Опция 3</option>
+            <option value="option4">Опция 4</option>
+        </select>
+        <br>
+        <input type="submit" value="Отправить" id="submitButton">
+    </form>
+
+    <div id="result"></div>
+
+    <button id="myButton">Нажми же меня</button>
+
+    <script>
+        let form = document.getElementById('myForm');
+        let resultDiv = document.getElementById('result');
+        let submitButton = document.getElementById('submitButton');
+
+        submitButton.addEventListener('dblclick', function(event) {
+            event.preventDefault();
+
+            let radioChecked = false;
+            let checkboxesChecked = false;
+            let selectValue = false;
+
+            let radioButtons = form.elements['radioGroup'];
+            for (let i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    radioChecked = true;
+                    break;
+                }
+            }
+
+            let checkboxes = form.elements['checkboxGroup'];
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    checkboxesChecked = true;
+                    break;
+                }
+            }
+
+            let select = form.elements['selectList'];
+            if (select.value) {
+                selectValue = true;
+            }
+
+            let resultContent = "Результат:<br>";
+            if (radioChecked) {
+                resultContent += "Переключатель: " + form.elements['radioGroup'].value + "<br>";
+            } else {
+                resultContent += "<p class='error'>Необходимо выбрать переключатель</p>";
+            }
+
+            if (checkboxesChecked) {
+                const checkedCheckboxes = Array.from(form.elements['checkboxGroup']).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
+                resultContent += "Флаги: " + checkedCheckboxes.join(', ') + "<br>";
+            } else {
+                resultContent += "<p class='error'>Необходимо отметить хотя бы один флажок</p>";
+            }
+
+            if (selectValue) {
+                const selectedOptions = Array.from(select.options).filter(option => option.selected).map(option => option.value);
+                resultContent += "Выпадающий список: " + selectedOptions.join(', ') + "<br>";
+            } else {
+                resultContent += "<p class='error'>Необходимо выбрать элемент из выпадающего списка</p>";
+            }
+
+            resultDiv.innerHTML = resultContent;
+        });
+
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function() {
+const event = new Event('dblclick');
+submitButton.dispatchEvent(event);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сон</title>
+    <style>
+        body {
+            background-color: #ffc1c1;
+            color: #000000;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        iframe {
+            margin-top: 10px;
+        }
+        h1 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 20px;
+            font-weight: bold; 
+                    }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #333333;
+            padding: 8px;
+        }
+        th {
+            font-weight: bold;
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+        }
+        audio {
+            margin-top: 25px;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 900px;
+            height: 500px;
+        }
+        .video-wrapper:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(data:image/jpeg;base64,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) no-repeat center;
+            background-size: cover;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>График проведения мероприятий на базе спортивного центра </h1>
+    <table>
+        <tr>
+            <th>Наименование мероприятия</th>
+            <th>Дата</th>
+            <th>Время проведения</th>
+        </tr>
+        <tr>
+            <td>Тренировки</td>
+            <td>01.01.2022</td>
+            <td>10:00 - 12:00</td>
+        </tr>
+        <tr>
+            <td>Соревнования</td>
+            <td>05.02.2022</td>
+            <td>14:00 - 17:00</td>
+        </tr>
+        <tr>
+            <td>Концерты</td>
+            <td>10.03.2022</td>
+            <td>19:00 - 22:00</td>
+        </tr>
+        <tr>
+            <td>Аренда</td>
+            <td>по договоренности</td>
+            <td>по договоренности</td>
+        </tr>
+        <tr>
+            <td>Другие мероприятия</td>
+            <td>по договоренности</td>
+            <td>по договоренности</td>
+        </tr>
+    </table>
+    <div class="video-wrapper">
+        <iframe width="900" height="500" src="https://www.youtube.com/embed/9f7KFJZ4fEo?si=Fe5Ar8WgZO5qUBN-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <p>Катана - Апология</p>
+    <p>Текст песни:</p>
+<p>
+    Моя катана реки крови
+    <br>
+    Я давно не слышу боли
+    <br>
+    Твоя **** так безвольна
+    <br>
+    Пара койлов — ей *****
+</p>
+<p>
+    Я система *****ида
+    <br>
+    Твоя кровь неотразима
+    <br>
+    Так стекает по щекам
+    <br>
+    Режу ***** этих дам
+</p>
+<p>
+    Моя катана реки крови
+    <br>
+    Я давно не слышу боли
+    <br>
+    Твоя **** так безвольна
+    <br>
+    Пара койлов — ей *****
+</p>
+<p>
+    Я система *****ида
+    <br>
+    Твоя кровь неотразима
+    <br>
+    Так стекает по щекам
+    <br>
+    Режу ***** этих дам
+</p>
+<p>
+    Ты же вообще не шаришь за вопрос флоу, это факт
+    <br>
+    Раз****шь меня соло в миду, это как?
+    <br>
+    Я влетаю с двух ног по лицу как маньяк
+    <br>
+    Называй меня Сережа Пират
+</p>
+<p>
+    Между нами речка в миду
+    <br>
+    Что ни говори
+    <br>
+    Ты орешь как какаду
+    <br>
+    Лучше помолчи
+</p>
+<p>
+    Я лежу в холодном бреду
+    <br>
+    Режу их как могу
+    <br>
+    Катаной как на ходу
+</p>
+<p>
+    Твоя милая подружка
+    <br>
+    Пала будто домино
+    <br>
+    Мимо красных фонарей
+    <br>
+    Это моё бусидо
+</p>
+<p>
+    Наливает мне сокэ
+    <br>
+    Я не люблю вино
+    <br>
+    Она знает что мне нужно
+    <br>
+    Но в РФ запрещено
+</p>
+<p>
+    Брызги крови на катане
+    <br>
+    Я читаю — т***а в с***е
+    <br>
+    После нас тебя не станет
+    <br>
+    Насадил тремя рейзами
+</p>
+<p>
+    Небо заливает краской
+    <br>
+    Для тебя снимаю маску
+    <br>
+    Обнажу свою катану
+    <br>
+    Летишь прямиком к фонтану
+</p>
+<p>
+    Моя катана реки крови
+    <br>
+    Я давно не слышу боли
+    <br>
+    Твоя **** так безвольна
+    <br>
+    Пара койлов — ей *****
+</p>
+<p>
+    Я система ******да
+    <br>
+    Твоя кровь неотразима
+    <br>
+    Так стекает по щекам
+    <br>
+    Режу г****и этих дам
+</p>
+<p>
+    Моя катана реки крови
+    <br>
+    Я давно не слышу боли
+    <br>
+    Твоя **** так безвольна
+    <br>
+    Пара койлов — ей *****
+</p>
+<p>
+    Я система *****ида
+    <br>
+    Твоя кровь неотразима
+    <br>
+    Так стекает по щекам
+    <br>
+    Режу г****и этих дам
+</p>
+    <audio controls loop autoplay>
+        <source src="https://dilozor.com/uploads/music/2022/06/apologiya-katana-polnaya-versiya-mp3.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>

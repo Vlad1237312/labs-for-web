@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Зависимый переключатель</title>
+  <style>
+    body {
+      background-color: #9fca9d;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    label {
+      display: inline-block;
+      padding: 8px 10px;
+      border: 1px solid #000000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type="radio"]:checked + label {
+      color: blue;
+      background-color: rgb(107, 0, 0);
+    }
+    input[type="radio"]:not(:checked) + label {
+      color: rgb(107, 0, 0);
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Зависимый переключатель</h1>
+  <input type="radio" id="yes" name="answer" checked>
+  <label for="yes">Да</label>
+  <input type="radio" id="no" name="answer">
+  <label for="no">Нет</label>
+</body>
+</html>

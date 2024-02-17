@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Пример веб-документа</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: antiquewhite;
+    }
+    h1 {
+      color: #000000;
+    }
+    p {
+      color: #8a1977;
+      font-weight: bold;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 200px;
+    }
+  </style>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      const bodyElement = document.body;
+      const resultElement = document.getElementById("result");
+      for (let i = 0; i < bodyElement.childNodes.length; i++) {
+        const node = bodyElement.childNodes[i];
+
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          const nodeNameElement = document.createElement("p");
+          nodeNameElement.textContent = `Значение: ${node.nodeName}`;
+          resultElement.appendChild(nodeNameElement);
+        }
+        if (i < 2) {
+          const nodeTypeElement = document.createElement("p");
+          nodeTypeElement.textContent = `Тип узла: ${node.nodeType}`;
+          resultElement.appendChild(nodeTypeElement);
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Заголовок первого уровня</h1>
+  <p>Первый абзац текста.</p>
+  <form>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name">
+  </form>
+  <h2>Заголовок второго уровня</h2>
+  <p>Второй абзац текста. Дальше типо "Выведите всех потомков тега body. Для первых 
+    двух элементов выведите тип узла."</p>
+  
+  <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="convertToJson">Преобразовать в JSON</button>
+    <div id="jsonOutput"></div>
+   
+    <script>
+    // Шаг 1: Получение данных от пользователя
+    let name = prompt("Введите название парковки:");
+    let address = prompt("Введите адрес парковки:");
+    let phone = prompt("Введите телефон парковки:");
+    let numberofplaces = prompt("Введите количество мест парковки:");
+
+    let parking = {
+        name: name,
+        address: address,
+        phone: phone,
+        numberofplaces: numberofplaces
+    };
+
+    // Шаг 2: Преобразование объекта JavaScript в JSON-строку при нажатии на кнопку
+    let convertButton = document.getElementById('convertToJson');
+    convertButton.addEventListener('click', function() {
+        let jsonString = JSON.stringify(parking);
+
+        // Шаг 3: Вывод полученной JSON-строки в HTML-элемент
+        let jsonOutput = document.getElementById('jsonOutput');
+        jsonOutput.innerHTML = jsonString;
+
+        // Шаг 4: Преобразование JSON-строки назад в объект JavaScript и отсеивание свойств, значения которых не являются строками       
+        let parsedObject = JSON.parse(jsonString, function(key, value) {
+            if (typeof value === 'string') {
+                return value;
+            } else {
+                return undefined; // Пропустить свойства, значения которых не являются строками
+            }
+        });
+
+        // Шаг 5: Создание строки данных в виде JSON-строки
+        let jsonStringVariable = '{"name":"Some Name","address":"Some Address","phone":"123-456-7890","numberofplaces":"5"}';
+
+        // Вывод результатов в консоль для проверки
+        //console.log(parsedObject);
+        console.log(jsonStringVariable);
+    });
+    </script>
+</body>
+</html>
